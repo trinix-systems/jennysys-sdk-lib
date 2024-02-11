@@ -58,18 +58,17 @@ var http_utility_1 = require("./http.utility");
 var JennysysSdk = /** @class */ (function (_super) {
     __extends(JennysysSdk, _super);
     function JennysysSdk() {
-        return _super.call(this) || this;
+        var _this = _super.call(this) || this;
+        if (!_this.htpUtility) {
+            _this.htpUtility = new http_utility_1.HttpUtility();
+            console.log('HttpService injected:', _this.htpUtility.httpService);
+        }
+        return _this;
     }
     JennysysSdk.instance = function () {
         if (JennysysSdk._instance == null)
             JennysysSdk._instance = new JennysysSdk();
         return JennysysSdk._instance;
-    };
-    JennysysSdk.prototype.init = function (httpService) {
-        if (!this.htpUtility) {
-            this.htpUtility = new http_utility_1.HttpUtility(httpService);
-            console.log('HttpService injected:', httpService);
-        }
     };
     JennysysSdk.prototype.authentification = function (username, password) {
         return __awaiter(this, void 0, void 0, function () {
