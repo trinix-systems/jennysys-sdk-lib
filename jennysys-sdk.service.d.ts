@@ -4,7 +4,7 @@ import { AxiosResponse } from 'axios';
 export declare class JennysysSdk extends IService {
     private static _instance;
     private htpUtility;
-    constructor();
+    private constructor();
     static instance(): JennysysSdk;
     init(httpService: HttpService): void;
     authentification(username: string, password: string): Promise<any>;

@@ -17,7 +17,7 @@ var JennysysSdkModule = /** @class */ (function () {
     JennysysSdkModule = __decorate([
         (0, common_1.Module)({
             imports: [axios_1.HttpModule],
-            providers: [jennysys_sdk_service_1.JennysysSdk, http_utility_1.HttpUtility],
+            providers: [http_utility_1.HttpUtility],
             exports: [jennysys_sdk_service_1.JennysysSdk]
         })
     ], JennysysSdkModule);
