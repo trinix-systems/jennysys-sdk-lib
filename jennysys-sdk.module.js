@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.JennysysSdkModule = void 0;
+var axios_1 = require("@nestjs/axios");
 var common_1 = require("@nestjs/common");
 var http_utility_1 = require("./http.utility");
 var jennysys_sdk_service_1 = require("./jennysys-sdk.service");
@@ -15,6 +16,7 @@ var JennysysSdkModule = /** @class */ (function () {
     }
     JennysysSdkModule = __decorate([
         (0, common_1.Module)({
+            imports: [axios_1.HttpModule],
             providers: [jennysys_sdk_service_1.JennysysSdk, http_utility_1.HttpUtility],
             exports: [jennysys_sdk_service_1.JennysysSdk]
         })
