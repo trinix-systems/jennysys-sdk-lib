@@ -68,8 +68,10 @@ var JennysysSdk = /** @class */ (function (_super) {
         return _super.call(this) || this;
     }
     JennysysSdk.prototype.init = function (httpService) {
-        this.htpUtility = new http_utility_1.HttpUtility(httpService);
-        console.log('HttpService injected:', httpService);
+        if (!this.htpUtility) {
+            this.htpUtility = new http_utility_1.HttpUtility(httpService);
+            console.log('HttpService injected:', httpService);
+        }
     };
     JennysysSdk.prototype.authentification = function (username, password) {
         return __awaiter(this, void 0, void 0, function () {
