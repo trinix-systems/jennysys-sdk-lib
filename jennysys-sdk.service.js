@@ -67,6 +67,12 @@ var JennysysSdk = /** @class */ (function (_super) {
     function JennysysSdk() {
         return _super.call(this) || this;
     }
+    JennysysSdk_1 = JennysysSdk;
+    JennysysSdk.instance = function () {
+        if (JennysysSdk_1._instance == null)
+            JennysysSdk_1._instance = new JennysysSdk_1();
+        return JennysysSdk_1._instance;
+    };
     JennysysSdk.prototype.init = function (httpService) {
         if (!this.htpUtility) {
             this.htpUtility = new http_utility_1.HttpUtility(httpService);
@@ -432,7 +438,9 @@ var JennysysSdk = /** @class */ (function (_super) {
     JennysysSdk.prototype.getTokenByEmailAndUsername = function (email, username) {
         throw new Error("Method deprecated");
     };
-    JennysysSdk = __decorate([
+    var JennysysSdk_1;
+    JennysysSdk._instance = null;
+    JennysysSdk = JennysysSdk_1 = __decorate([
         (0, common_1.Injectable)()
     ], JennysysSdk);
     return JennysysSdk;
