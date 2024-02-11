@@ -1,9 +1,10 @@
+import { HttpService } from '@nestjs/axios';
 import { IService } from '@trinix/app-utility';
 import { AxiosResponse } from 'axios';
-import { HttpUtility } from './http.utility';
 export declare class JennysysSdk extends IService {
     private htpUtility;
-    constructor(htpUtility: HttpUtility);
+    constructor();
+    init(httpService: HttpService): void;
     authentification(username: string, password: string): Promise<any>;
     authentificationByEmail(email: string, password: string): Promise<AxiosResponse<any>>;
     authentificationByPhone(phone: string, password: string): Promise<AxiosResponse<any>>;

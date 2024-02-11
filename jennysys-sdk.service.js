@@ -61,13 +61,16 @@ exports.URLS = exports.JennysysSdk = void 0;
 var common_1 = require("@nestjs/common");
 var app_utility_1 = require("@trinix/app-utility");
 var app_error_const_1 = require("./app.error.const");
+var http_utility_1 = require("./http.utility");
 var JennysysSdk = /** @class */ (function (_super) {
     __extends(JennysysSdk, _super);
-    function JennysysSdk(htpUtility) {
-        var _this = _super.call(this) || this;
-        _this.htpUtility = htpUtility;
-        return _this;
+    function JennysysSdk() {
+        return _super.call(this) || this;
     }
+    JennysysSdk.prototype.init = function (httpService) {
+        this.htpUtility = new http_utility_1.HttpUtility(httpService);
+        console.log('HttpService injected:', httpService);
+    };
     JennysysSdk.prototype.authentification = function (username, password) {
         return __awaiter(this, void 0, void 0, function () {
             var params, result, ex_1;

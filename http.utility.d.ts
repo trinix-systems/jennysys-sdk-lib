@@ -1,6 +1,6 @@
 import { HttpService } from "@nestjs/axios";
 export declare class HttpUtility {
-    private httpService;
+    httpService: HttpService;
     constructor(httpService: HttpService);
     _HOST: string;
     _APPKEY: string;
