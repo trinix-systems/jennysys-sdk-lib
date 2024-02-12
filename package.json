@@ -1,6 +1,6 @@
 {
   "name": "jennysys-sdk",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "JennySys SDK",
   "main": "index.js",
   "scripts": {

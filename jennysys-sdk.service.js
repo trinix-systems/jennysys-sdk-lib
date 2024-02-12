@@ -20,6 +20,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -99,6 +102,9 @@ var JennysysSdk = /** @class */ (function (_super) {
                             this.error().errorCode = result.error.errorCode;
                             this.error().errorDescription = result.error.errorDescription;
                         }
+                        if (this.error().errorCode == app_utility_1.ErrorResponseStatus.KO) {
+                            throw new app_utility_1.ValueDataException(this.error().errorDescription);
+                        }
                         return [2 /*return*/, result.response];
                     case 3:
                         ex_1 = _a.sent();
@@ -129,6 +135,9 @@ var JennysysSdk = /** @class */ (function (_super) {
                             this.error().errorCode = result.error.errorCode;
                             this.error().errorDescription = result.error.errorDescription;
                         }
+                        if (this.error().errorCode == app_utility_1.ErrorResponseStatus.KO) {
+                            throw new app_utility_1.ValueDataException(this.error().errorDescription);
+                        }
                         return [2 /*return*/, result.response];
                 }
             });
@@ -151,6 +160,9 @@ var JennysysSdk = /** @class */ (function (_super) {
                         if (result != null) {
                             this.error().errorCode = result.error.errorCode;
                             this.error().errorDescription = result.error.errorDescription;
+                        }
+                        if (this.error().errorCode == app_utility_1.ErrorResponseStatus.KO) {
+                            throw new app_utility_1.ValueDataException(this.error().errorDescription);
                         }
                         return [2 /*return*/, result.response];
                 }
@@ -177,6 +189,9 @@ var JennysysSdk = /** @class */ (function (_super) {
                         if (result != null) {
                             this.error().errorCode = result.error.errorCode;
                             this.error().errorDescription = result.error.errorDescription;
+                        }
+                        if (this.error().errorCode == app_utility_1.ErrorResponseStatus.KO) {
+                            throw new app_utility_1.ValueDataException(this.error().errorDescription);
                         }
                         return [2 /*return*/, result.response];
                 }
@@ -207,6 +222,9 @@ var JennysysSdk = /** @class */ (function (_super) {
                         if (result != null) {
                             this.error().errorCode = result.error.errorCode;
                             this.error().errorDescription = result.error.errorDescription;
+                        }
+                        if (this.error().errorCode == app_utility_1.ErrorResponseStatus.KO) {
+                            throw new app_utility_1.ValueDataException(this.error().errorDescription);
                         }
                         return [2 /*return*/, result.response];
                 }
@@ -255,7 +273,11 @@ var JennysysSdk = /** @class */ (function (_super) {
                             this.error().errorDescription = app_error_const_1.AppErrorConst.ERR_HTTP_UNKNOW;
                         }
                         return [3 /*break*/, 4];
-                    case 4: return [2 /*return*/, result.response];
+                    case 4:
+                        if (this.error().errorCode == app_utility_1.ErrorResponseStatus.KO) {
+                            throw new app_utility_1.ValueDataException(this.error().errorDescription);
+                        }
+                        return [2 /*return*/, result.response];
                 }
             });
         });
@@ -278,6 +300,9 @@ var JennysysSdk = /** @class */ (function (_super) {
                         if (result != null) {
                             this.error().errorCode = result.error.errorCode;
                             this.error().errorDescription = result.error.errorDescription;
+                        }
+                        if (this.error().errorCode == app_utility_1.ErrorResponseStatus.KO) {
+                            throw new app_utility_1.ValueDataException(this.error().errorDescription);
                         }
                         return [2 /*return*/, result.response()];
                 }
@@ -307,6 +332,9 @@ var JennysysSdk = /** @class */ (function (_super) {
                             this.error().errorCode = result.error.errorCode;
                             this.error().errorDescription = result.error.errorDescription;
                         }
+                        if (this.error().errorCode == app_utility_1.ErrorResponseStatus.KO) {
+                            throw new app_utility_1.ValueDataException(this.error().errorDescription);
+                        }
                         return [2 /*return*/, result.response];
                 }
             });
@@ -331,6 +359,9 @@ var JennysysSdk = /** @class */ (function (_super) {
                         if (result != null) {
                             this.error().errorCode = result.error.errorCode;
                             this.error().errorDescription = result.error.errorDescription;
+                        }
+                        if (this.error().errorCode == app_utility_1.ErrorResponseStatus.KO) {
+                            throw new app_utility_1.ValueDataException(this.error().errorDescription);
                         }
                         return [2 /*return*/, result.response];
                 }
@@ -362,6 +393,9 @@ var JennysysSdk = /** @class */ (function (_super) {
                         if (result != null) {
                             this.error().errorCode = result.error.errorCode;
                             this.error().errorDescription = result.error.errorDescription;
+                        }
+                        if (this.error().errorCode == app_utility_1.ErrorResponseStatus.KO) {
+                            throw new app_utility_1.ValueDataException(this.error().errorDescription);
                         }
                         return [2 /*return*/, result.response];
                 }
@@ -405,6 +439,9 @@ var JennysysSdk = /** @class */ (function (_super) {
                             this.error().errorDescription = "Nous éprouvons des difficulés à contactez JennySys";
                             console.log(result);
                         }
+                        if (this.error().errorCode == app_utility_1.ErrorResponseStatus.KO) {
+                            throw new app_utility_1.ValueDataException(this.error().errorDescription);
+                        }
                         return [2 /*return*/, result.response];
                 }
             });
@@ -428,6 +465,9 @@ var JennysysSdk = /** @class */ (function (_super) {
                         if (result != null) {
                             this.error().errorCode = result.error.errorCode;
                             this.error().errorDescription = result.error.errorDescription;
+                        }
+                        if (this.error().errorCode == app_utility_1.ErrorResponseStatus.KO) {
+                            throw new app_utility_1.ValueDataException(this.error().errorDescription);
                         }
                         return [2 /*return*/, result];
                 }
@@ -460,6 +500,9 @@ var JennysysSdk = /** @class */ (function (_super) {
                             this.error().errorCode = result.error.errorCode;
                             this.error().errorDescription = result.error.errorDescription;
                         }
+                        if (this.error().errorCode == app_utility_1.ErrorResponseStatus.KO) {
+                            throw new app_utility_1.ValueDataException(this.error().errorDescription);
+                        }
                         return [2 /*return*/, result];
                 }
             });
@@ -468,7 +511,8 @@ var JennysysSdk = /** @class */ (function (_super) {
     var JennysysSdk_1;
     JennysysSdk._instance = null;
     JennysysSdk = JennysysSdk_1 = __decorate([
-        (0, common_1.Injectable)()
+        (0, common_1.Injectable)(),
+        __metadata("design:paramtypes", [])
     ], JennysysSdk);
     return JennysysSdk;
 }(app_utility_1.IService));
