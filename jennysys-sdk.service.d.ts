@@ -1,14 +1,13 @@
 import { IService } from '@trinix/app-utility';
-import { AxiosResponse } from 'axios';
 export declare class JennysysSdk extends IService {
     private static _instance;
     private htpUtility;
     constructor();
     static instance(): JennysysSdk;
     authentification(username: string, password: string): Promise<any>;
-    authentificationByEmail(email: string, password: string): Promise<AxiosResponse<any>>;
-    authentificationByPhone(phone: string, password: string): Promise<AxiosResponse<any>>;
-    verifyToken(username: string, token: string): Promise<AxiosResponse<any>>;
+    authentificationByEmail(email: string, password: string): Promise<any>;
+    authentificationByPhone(phone: string, password: string): Promise<any>;
+    verifyToken(username: string, token: string): Promise<any>;
     recoveryPassword(email: string, username: string): Promise<any>;
     changePassword(username: string, actualPassword: string, newPassword: string, confirm: string, token: string): Promise<any>;
     verificationOTP(name: string, country: string, phone: string): Promise<any>;
