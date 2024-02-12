@@ -102,17 +102,23 @@ var JennysysSdk = /** @class */ (function (_super) {
                             this.error().errorCode = result.error.errorCode;
                             this.error().errorDescription = result.error.errorDescription;
                         }
-                        if (this.error().errorCode == app_utility_1.ErrorResponseStatus.KO) {
-                            throw new app_utility_1.ValueDataException(this.error().errorDescription);
-                        }
                         return [2 /*return*/, result.response];
                     case 3:
                         ex_1 = _a.sent();
-                        this.error().errorCode = app_utility_1.ErrorResponseStatus.KO;
-                        this.error().errorDescription = app_error_const_1.AppErrorConst.ERR_HTTP_UNKNOW;
-                        console.log(ex_1);
+                        this.error().clear();
+                        if (ex_1 instanceof app_utility_1.ValueDataException) {
+                            this.error().errorDescription = app_error_const_1.AppErrorConst.ERR_HTTP_UNKNOW;
+                        }
+                        else {
+                            console.log(ex_1);
+                            this.error().errorDescription = app_error_const_1.AppErrorConst.ERR_UNKNOW;
+                        }
                         return [3 /*break*/, 4];
-                    case 4: return [2 /*return*/, null];
+                    case 4:
+                        if (this.error().errorCode == app_utility_1.ErrorResponseStatus.KO) {
+                            throw new app_utility_1.ValueDataException(this.error().errorDescription);
+                        }
+                        return [2 /*return*/, null];
                 }
             });
         });
