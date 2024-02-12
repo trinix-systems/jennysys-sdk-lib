@@ -3,7 +3,7 @@ import { AxiosResponse } from 'axios';
 export declare class JennysysSdk extends IService {
     private static _instance;
     private htpUtility;
-    private constructor();
+    constructor();
     static instance(): JennysysSdk;
     authentification(username: string, password: string): Promise<any>;
     authentificationByEmail(email: string, password: string): Promise<AxiosResponse<any>>;
