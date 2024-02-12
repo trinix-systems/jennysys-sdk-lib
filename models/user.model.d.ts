@@ -1,13 +1,40 @@
 import { ModelEntity } from "@trinix/app-utility";
+import { ProfilAccess } from "./profilAccess.model";
 export declare class UserModel extends ModelEntity {
-    copy(): void;
-    uuid: string;
+    id: number;
+    fkProfilAccess: number;
+    fkProfilApplication: number;
+    fkUserCategory: number;
     nom: string;
-    matricule: string;
-    service: string;
-    token: string;
     username: string;
+    pwd: string;
+    pin: string;
+    token: string;
+    email: string;
+    phone: string;
+    adresse: string;
+    fkCentre: string;
+    fkEntreprise: string;
     fonction: string;
+    service: string;
+    matricule: string;
+    lastConnexion: Date | null;
+    role: string;
+    uuid: string;
+    fkApplication: string;
+    status: boolean;
+    access: string[];
+    centre: any;
+    profilAcess: ProfilAccess | null;
     static fromEntity(snapshot: any): UserModel;
-    toEntity(): void;
+    toEntity(): {
+        fkProfilAccess: number;
+        fkProfilApplication: number;
+        fkUserCategory: number;
+        uuid: string;
+        fkApplication: string;
+        status: boolean;
+    };
+    copy(): UserModel;
+    permitted(access: string): boolean;
 }
