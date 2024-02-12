@@ -429,6 +429,34 @@ var JennysysSdk = /** @class */ (function (_super) {
     JennysysSdk.prototype.getTokenByEmailAndUsername = function (email, username) {
         throw new Error("Method deprecated");
     };
+    JennysysSdk.prototype.getUserByUuid = function (username, token, fkEntreprise, uuid) {
+        return __awaiter(this, void 0, void 0, function () {
+            var params, result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        this.error().clear();
+                        if (username == null || (username != null && username.trim().length <= 0)) {
+                        }
+                        params = {
+                            login: username,
+                            token: token,
+                            fkEntreprise: fkEntreprise,
+                            code: uuid
+                        };
+                        return [4 /*yield*/, this.htpUtility.doPost(URLS.CONST_GET_USER_BY_UUID, params)];
+                    case 1:
+                        result = _a.sent();
+                        //console.log(result);
+                        if (result != null) {
+                            this.error().errorCode = result.error.errorCode;
+                            this.error().errorDescription = result.error.errorDescription;
+                        }
+                        return [2 /*return*/, result];
+                }
+            });
+        });
+    };
     JennysysSdk._instance = null;
     return JennysysSdk;
 }(app_utility_1.IService));
@@ -448,4 +476,5 @@ var URLS;
     URLS["CONST_CHANGE_PWD"] = "/JennySys/api/authentification/password/change";
     URLS["CONST_CONNEXION_BY_EMAIL"] = "JennySys/api/authentification/email";
     URLS["CONST_CONNEXION_BY_PHONE"] = "JennySys/api/authentification/phone";
+    URLS["CONST_GET_USER_BY_UUID"] = "/JennySys/api/setting/users/get";
 })(URLS = exports.URLS || (exports.URLS = {}));

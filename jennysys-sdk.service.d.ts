@@ -18,6 +18,7 @@ export declare class JennysysSdk extends IService {
     modifyUser(uuid: string, nom: string, phone: string, email: string, login: string, expirationDate: string, role: string, fonction: string, centre: string, profilAccess: number, adresse: string, token: string, entreprise: string, password: string, userId: number): Promise<any>;
     verifyCodePIN(token: string, pin: string, username: string): Promise<any>;
     getTokenByEmailAndUsername(email: string, username: string): Promise<any>;
+    getUserByUuid(username: string, token: string, fkEntreprise: string, uuid: string): Promise<any>;
 }
 export declare enum URLS {
     CONST_VERY_TOKEN = "/JennySys/api/authentification/verifyToken",
@@ -32,5 +33,6 @@ export declare enum URLS {
     CONST_CHANGE_PIN = "/JennySys/api/authentification/pin/change",
     CONST_CHANGE_PWD = "/JennySys/api/authentification/password/change",
     CONST_CONNEXION_BY_EMAIL = "JennySys/api/authentification/email",
-    CONST_CONNEXION_BY_PHONE = "JennySys/api/authentification/phone"
+    CONST_CONNEXION_BY_PHONE = "JennySys/api/authentification/phone",
+    CONST_GET_USER_BY_UUID = "/JennySys/api/setting/users/get"
 }
